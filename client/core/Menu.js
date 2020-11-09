@@ -2,11 +2,11 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button'
 import auth from './../auth/auth-helper'
 import {Link, withRouter} from 'react-router-dom'
+import Sidebar from './Sidebar'
+
 
 const isActive = (history, path) => {
   if (history.location.pathname == path)
@@ -15,26 +15,28 @@ const isActive = (history, path) => {
     return {color: '#ffffff'}
 }
 
-const Menu = withRouter(({history}) => (
+
+
+const Menu = withRouter((props) => (
   <AppBar position="static">
     <Toolbar>
-      <IconButton style={{marginRight: ''}} edge="start" color="inherit" aria-label="menu">
-        <MenuIcon />
-      </IconButton>
+      <Sidebar 
+        left="false"
+      />
       <Typography style={{flex: '1'}} variant="h6">
         Mastery Gradebook
       </Typography>
       <Link to="/users">
-        <Button style={isActive(history, "/users")}>Users</Button>
-      </Link>
+        <Button style={isActive(props.history, "/users")}>Users</Button>
+      </Link> 
       {
         !auth.isAuthenticated() && (<span>
           <Link to="/signup">
-            <Button style={isActive(history, "/signup")}>Sign up
+            <Button style={isActive(props.history, "/signup")}>Sign up
             </Button>
           </Link>
           <Link to="/signin">
-            <Button style={isActive(history, "/signin")}>Sign In
+            <Button style={isActive(props.history, "/signin")}>Sign In
             </Button>
           </Link>
         </span>)
@@ -42,10 +44,10 @@ const Menu = withRouter(({history}) => (
       {
         auth.isAuthenticated() && (<span>
           <Link to={"/user/" + auth.isAuthenticated().user._id}>
-            <Button style={isActive(history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
+            <Button style={isActive(props.history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>
           <Button color="inherit" onClick={() => {
-              auth.clearJWT(() => history.push('/'))
+              auth.clearJWT(() => props.history.push('/'))
             }}>Sign out</Button>
         </span>)
       }
