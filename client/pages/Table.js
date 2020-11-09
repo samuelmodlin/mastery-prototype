@@ -51,44 +51,48 @@ class MainTable extends React.Component {
         const { classes } = this.props;
 
         return (
-            <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-                <TableRow>
-                <StyledTableCell>Student</StyledTableCell>
-                <StyledTableCell align="right">Topic 1</StyledTableCell>
-                <StyledTableCell align="right">Topic 2</StyledTableCell>
-                <StyledTableCell align="right">Topic 3</StyledTableCell>
-                <StyledTableCell align="right">Topic 4</StyledTableCell>
-                <StyledTableCell align="right">Topic 5</StyledTableCell>
-                <StyledTableCell align="right">Topic 6</StyledTableCell>
-                <StyledTableCell align="right">Topic 7</StyledTableCell>
-                <StyledTableCell align="right">Topic 8</StyledTableCell>
-                <StyledTableCell align="right">Topic 9</StyledTableCell>
-                <StyledTableCell align="right">Topic 10</StyledTableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {rows.map((row) => (
-                <StyledTableRow key={row.name} hover role="checkbox" tabIndex={-1} key={row.code}>
-                    <StyledTableCell component="th" scope="row">
-                    {row.name}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">{row.topicOne}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicTwo}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicThree}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicFour}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicFive}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicSix}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicSeven}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicEight}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicNine}</StyledTableCell>
-                    <StyledTableCell align="right">{row.topicTen}</StyledTableCell>
-                </StyledTableRow>
-                ))}
-            </TableBody>
-            </Table>
-            </TableContainer>
+            <div>
+              <Button>Flip rows and columns</Button>
+
+              <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                  <TableRow>
+                  <StyledTableCell>Student</StyledTableCell>
+                  <StyledTableCell align="right">Topic 1</StyledTableCell>
+                  <StyledTableCell align="right">Topic 2</StyledTableCell>
+                  <StyledTableCell align="right">Topic 3</StyledTableCell>
+                  <StyledTableCell align="right">Topic 4</StyledTableCell>
+                  <StyledTableCell align="right">Topic 5</StyledTableCell>
+                  <StyledTableCell align="right">Topic 6</StyledTableCell>
+                  <StyledTableCell align="right">Topic 7</StyledTableCell>
+                  <StyledTableCell align="right">Topic 8</StyledTableCell>
+                  <StyledTableCell align="right">Topic 9</StyledTableCell>
+                  <StyledTableCell align="right">Topic 10</StyledTableCell>
+                  </TableRow>
+              </TableHead>
+              <TableBody>
+                  {rows.map((row) => (
+                  <StyledTableRow key={row.name} hover role="checkbox" tabIndex={-1} key={row.code}>
+                      <StyledTableCell component="th" scope="row">
+                      {row.name}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">{row.topicOne}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicTwo}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicThree}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicFour}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicFive}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicSix}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicSeven}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicEight}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicNine}</StyledTableCell>
+                      <StyledTableCell align="right">{row.topicTen}</StyledTableCell>
+                  </StyledTableRow>
+                  ))}
+              </TableBody>
+              </Table>
+              </TableContainer>
+            </div>
         )
     }
 }
