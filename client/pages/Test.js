@@ -30,7 +30,29 @@ class Test extends React.Component {
             </Typography>
           </AccordionDetails>
         </Accordion>
-        
+        //accordion 2
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
+            <Typography className={classes.heading}> Test 2 </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Add Item
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        //accordion 3
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
+            <Typography className={classes.heading}> Test 3 </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Add Item
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+
         <p className={classes.exampleCss}> Example JSX: Test Page </p>
       </div>
     );
