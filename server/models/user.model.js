@@ -1,5 +1,10 @@
 import mongoose from 'mongoose'
 import crypto from 'crypto'
+
+/*
+  Database schema for User 
+  Used by Mongoose and Passport
+*/
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,

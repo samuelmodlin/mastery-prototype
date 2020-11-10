@@ -3,6 +3,10 @@ import jwt from 'jsonwebtoken'
 import expressJwt from 'express-jwt'
 import config from './../../config/config'
 
+/*
+  Authorization Methods 
+  Uses token of email password details
+*/
 const signin = async (req, res) => {
   try {
     let user = await User.findOne({

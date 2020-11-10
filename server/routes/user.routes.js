@@ -4,6 +4,10 @@ import authCtrl from '../controllers/auth.controller'
 
 const router = express.Router()
 
+/*
+  Api routes for getting user and user data
+*/
+
 router.route('/api/users')
   .get(userCtrl.list)
   .post(userCtrl.create)

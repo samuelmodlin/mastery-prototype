@@ -14,9 +14,6 @@ const useStyles = (theme) => ({
   },
 });
 
-// export default function SimpleAccordion() {
-//   const classes = useStyles();
-
 class Test extends React.Component {
   render() {
     const { classes } = this.props;
