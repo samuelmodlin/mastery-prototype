@@ -33,9 +33,25 @@ const useStyles = (theme) => ({
   }
 });
 
+
 class Landing extends React.Component {
+  constructor() {
+   super();
+   this.state = {
+     showClass: false,
+   };
+ }
+
+   handleClick() {
+
+       console.log('The link was clicked.');
+       this.setState({showClass: true});
+       console.log(this.state.showClass);
+      }
+
   render() {
     const { classes } = this.props;
+    const { showClass } = this.state;
     const bull = <span className={classes.bullet}> • </span>;
 
     return (
@@ -89,9 +105,37 @@ class Landing extends React.Component {
             <Button size="small"> Go To Class Page </Button>{" "}
           </CardActions>{" "}
         </Card>
-        <Fab className={classes.fab} color='primary'>
+
+        <Fab className={classes.fab} color='primary' href="#" onClick={() => {
+          this.handleClick(); }}>
             <AddIcon />
         </Fab>
+        <div>
+        {this.state.showClass &&
+          <Card className={classes.root} variant="outlined">
+            <CardContent>
+              <Typography
+                className={classes.title}
+                color="textSecondary"
+                gutterBottom
+              >
+                Meets: MFW 1 - 2{" "}
+              </Typography>{" "}
+              <Typography variant="h5" component="h2">
+                Class 3{" "}
+              </Typography>{" "}
+              <Typography className={classes.pos} color="textSecondary">
+                Current Assignment: N/A{" "}
+              </Typography>{" "}
+              <Typography variant="body2" component="p">
+                Class Stas{" "}
+              </Typography>{" "}
+            </CardContent>{" "}
+            <CardActions>
+              <Button size="small"> Go To Class Page </Button>{" "}
+            </CardActions>{" "}
+          </Card>}
+        </div>
       </div>
     );
   }
