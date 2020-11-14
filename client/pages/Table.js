@@ -51,7 +51,8 @@ class MainTable extends React.Component {
         const { classes } = this.props;
 
         return (
-            <div>
+            <div style={{marginLeft: 10 + 'em', marginRight: 10 + 'em'}}>
+              <h2>Class Summary</h2>
               <Button>Flip rows and columns</Button>
 
               <TableContainer component={Paper}>
