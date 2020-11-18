@@ -12,6 +12,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import AddIcon from '@material-ui/icons/Add';
+
 
 
 
@@ -32,6 +34,8 @@ const useStyles = (theme) => ({
 class Test extends React.Component {
   render() {
     const { classes } = this.props;
+    const { showClass } = this.state;
+
 
 
 
@@ -165,6 +169,53 @@ class Test extends React.Component {
           </AccordionDetails>
         </Accordion>
 
+        <Accordion className={classes.fab} color='primary' href="#" onClick={() => {
+          this.handleClick(); }}>
+            <AddIcon />
+        </Accordion>
+        <div>
+        {this.state.showClass &&
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
+              <Typography className={classes.heading}> Test 2 </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <Button>Generate PDFs</Button>
+              <List component="nav" aria-labelledby="nested-list-subheader"
+              subheader={
+              <ListSubheader component="div" id="nested-list-subheader">
+                Topics
+            </ListSubheader>
+            }
+            className={classes.root}
+          >
+            <ListItem button>
+              <ListItemText primary="Topic 3" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemText primary="Topic 4" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemText primary="Topic 5" />
+            </ListItem>
+
+            <List component="div" disablePadding>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 1" />
+                        </ListItem>
+                        <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 2" />
+                </ListItem>
+            </List>
+
+            </List>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>}
+        </div>
       </div>
     );
   }
