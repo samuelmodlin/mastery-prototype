@@ -1,5 +1,38 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+=======
+/*MIT License
+Copyright (c) 2018 Shama Hoque
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+import React, { useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+import ListItemText from '@material-ui/core/ListItemText'
+import Avatar from '@material-ui/core/Avatar'
+import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
+import Edit from '@material-ui/icons/Edit'
+import Person from '@material-ui/icons/Person'
+import Divider from '@material-ui/core/Divider'
+import DeleteUser from './DeleteUser'
+import auth from './../auth/auth-helper'
+import {read} from './api-user.js'
+import {Redirect, Link} from 'react-router-dom'
+>>>>>>> 61c9c5214196532d0048841dd9380c73c0749274
 
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -83,6 +116,7 @@ export default function Profile({ match }) {
     };
   }, [match.params.userId]);
 
+<<<<<<< HEAD
   if (redirectToSignin) {
     return <Redirect to="/signin" />;
   }
@@ -140,3 +174,43 @@ export default function Profile({ match }) {
     </div>
   );
 }
+=======
+  }, [match.params.userId])
+  
+    if (redirectToSignin) {
+      return <Redirect to='/signin'/>
+    }
+    return (
+      <Paper className={classes.root} elevation={4}>
+        <Typography variant="h6" className={classes.title}>
+          Profile
+        </Typography>
+        <List dense>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <Person/>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={user.name} secondary={user.email}/> {
+             auth.isAuthenticated().user && auth.isAuthenticated().user._id == user._id &&
+              (<ListItemSecondaryAction>
+                <Link to={"/user/edit/" + user._id}>
+                  <IconButton aria-label="Edit" color="primary">
+                    <Edit/>
+                  </IconButton>
+                </Link>
+                <DeleteUser userId={user._id}/>
+              </ListItemSecondaryAction>)
+            }
+          </ListItem>
+          <Divider/>
+          <ListItem>
+            <ListItemText primary={"Joined: " + (
+              new Date(user.created)).toDateString()}/>
+          </ListItem>
+        </List>
+      </Paper>
+    )
+  }
+>>>>>>> 61c9c5214196532d0048841dd9380c73c0749274
