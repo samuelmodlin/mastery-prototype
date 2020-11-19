@@ -5,6 +5,33 @@ import crypto from 'crypto'
   Database schema for User 
   Used by Mongoose and Passport
 */
+
+const TestSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    default: "Test 1"
+  },
+  topics: {
+    type: [String],
+    default: ["Topic 1", "Topic 2", "Topic 3"]
+  }
+})
+
+const ClassSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    default: "Class 1"
+  },
+  schedule: {
+    type: String,
+    default: "MWF 2-3"
+  },
+  tests: {
+    type: [TestSchema],
+    default: () => ({})
+  }
+})
+
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -27,6 +54,10 @@ const UserSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
+  },
+  classes: {
+    type: [ClassSchema],
+    default: () => ({})
   }
 })
 

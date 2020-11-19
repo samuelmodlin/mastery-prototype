@@ -2,20 +2,17 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
-import Accordion from '@material-ui/core/Accordion';
+import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ListSubheader from '@material-ui/core/ListSubheader';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import AddIcon from '@material-ui/icons/Add';
-
-
-
+import ListSubheader from "@material-ui/core/ListSubheader";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import AddIcon from "@material-ui/icons/Add";
 
 const useStyles = (theme) => ({
   exampleCss: {
@@ -25,7 +22,7 @@ const useStyles = (theme) => ({
     paddingLeft: theme.spacing(4),
   },
   root: {
-    width: '100%',
+    width: "100%",
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
@@ -34,188 +31,136 @@ const useStyles = (theme) => ({
 class Test extends React.Component {
   render() {
     const { classes } = this.props;
-    const { showClass } = this.state;
-
-
-
 
     return (
       <div className={classes.root}>
-        <Accordion>
+        <Accordion fullWidth>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
             <Typography className={classes.heading}> Test 1 </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
               <Button>Generate PDFs</Button>
-              <List component="nav" aria-labelledby="nested-list-subheader"
-              subheader={
-              <ListSubheader component="div" id="nested-list-subheader">
-                Topics
-            </ListSubheader>
-            }
-            className={classes.root}
-          >
-            <ListItem button>
-              <ListItemText primary="Topic 1" />
-            </ListItem>
-
-
-              <List component="div" disablePadding>
-                <ListItem button className={classes.nested}>
-                  <ListItemText primary="Question 1" />
+              <List
+                component="nav"
+                aria-labelledby="nested-list-subheader"
+                subheader={
+                  <ListSubheader component="div" id="nested-list-subheader">
+                    Topics
+                  </ListSubheader>
+                }
+                className={classes.root}
+              >
+                <ListItem button>
+                  <ListItemText primary="Topic 1" />
                 </ListItem>
-                <ListItem button className={classes.nested}>
-                  <ListItemText primary="Question 2" />
+
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 1" />
+                  </ListItem>
+                  <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 2" />
+                  </ListItem>
+                </List>
+
+                <ListItem button>
+                  <ListItemText primary="Topic 2" />
+                </ListItem>
+
+                <ListItem button>
+                  <ListItemText primary="Topic 3" />
                 </ListItem>
               </List>
-
-
-            <ListItem button>
-              <ListItemText primary="Topic 2" />
-            </ListItem>
-
-            <ListItem button>
-              <ListItemText primary="Topic 3" />
-            </ListItem>
-
-            </List>
-
             </Typography>
           </AccordionDetails>
         </Accordion>
 
         {/*accordion 2*/}
-        <Accordion>
+        <Accordion fullWidth>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
             <Typography className={classes.heading}> Test 2 </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-            <Button>Generate PDFs</Button>
-            <List component="nav" aria-labelledby="nested-list-subheader"
-            subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              Topics
-          </ListSubheader>
-          }
-          className={classes.root}
-        >
-          <ListItem button>
-            <ListItemText primary="Topic 3" />
-          </ListItem>
+              <Button>Generate PDFs</Button>
+              <List
+                component="nav"
+                aria-labelledby="nested-list-subheader"
+                subheader={
+                  <ListSubheader component="div" id="nested-list-subheader">
+                    Topics
+                  </ListSubheader>
+                }
+                className={classes.root}
+              >
+                <ListItem button>
+                  <ListItemText primary="Topic 3" />
+                </ListItem>
 
-          <ListItem button>
-            <ListItemText primary="Topic 4" />
-          </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Topic 4" />
+                </ListItem>
 
-          <ListItem button>
-            <ListItemText primary="Topic 5" />
-          </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Topic 5" />
+                </ListItem>
 
-          <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                  <ListItemText primary="Question 1" />
-                      </ListItem>
-                      <ListItem button className={classes.nested}>
-                  <ListItemText primary="Question 2" />
-              </ListItem>
-          </List>
-
-          </List>
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 1" />
+                  </ListItem>
+                  <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 2" />
+                  </ListItem>
+                </List>
+              </List>
             </Typography>
           </AccordionDetails>
         </Accordion>
 
         {/*accordion 3*/}
-        <Accordion>
+        <Accordion fullWidth>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
             <Typography className={classes.heading}> Test 3 </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-            <Button>Generate PDFs</Button>
-            <List component="nav" aria-labelledby="nested-list-subheader"
-            subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              Topics
-          </ListSubheader>
-          }
-          className={classes.root}
-        >
-          <ListItem button>
-            <ListItemText primary="Topic 5" />
-          </ListItem>
+              <Button>Generate PDFs</Button>
+              <List
+                component="nav"
+                aria-labelledby="nested-list-subheader"
+                subheader={
+                  <ListSubheader component="div" id="nested-list-subheader">
+                    Topics
+                  </ListSubheader>
+                }
+                className={classes.root}
+              >
+                <ListItem button>
+                  <ListItemText primary="Topic 5" />
+                </ListItem>
 
-          <ListItem button>
-            <ListItemText primary="Topic 6" />
-          </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Topic 6" />
+                </ListItem>
 
-          <ListItem button>
-            <ListItemText primary="Topic 7" />
-          </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Topic 7" />
+                </ListItem>
 
-          <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                  <ListItemText primary="Question 1" />
-                      </ListItem>
-                      <ListItem button className={classes.nested}>
-                  <ListItemText primary="Question 2" />
-              </ListItem>
-          </List>
-
-          </List>
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 1" />
+                  </ListItem>
+                  <ListItem button className={classes.nested}>
+                    <ListItemText primary="Question 2" />
+                  </ListItem>
+                </List>
+              </List>
             </Typography>
           </AccordionDetails>
         </Accordion>
-
-        <Accordion className={classes.fab} color='primary' href="#" onClick={() => {
-          this.handleClick(); }}>
-            <AddIcon />
-        </Accordion>
-        <div>
-        {this.state.showClass &&
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
-              <Typography className={classes.heading}> Test 2 </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-              <Button>Generate PDFs</Button>
-              <List component="nav" aria-labelledby="nested-list-subheader"
-              subheader={
-              <ListSubheader component="div" id="nested-list-subheader">
-                Topics
-            </ListSubheader>
-            }
-            className={classes.root}
-          >
-            <ListItem button>
-              <ListItemText primary="Topic 3" />
-            </ListItem>
-
-            <ListItem button>
-              <ListItemText primary="Topic 4" />
-            </ListItem>
-
-            <ListItem button>
-              <ListItemText primary="Topic 5" />
-            </ListItem>
-
-            <List component="div" disablePadding>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="Question 1" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}>
-                    <ListItemText primary="Question 2" />
-                </ListItem>
-            </List>
-
-            </List>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>}
-        </div>
       </div>
     );
   }

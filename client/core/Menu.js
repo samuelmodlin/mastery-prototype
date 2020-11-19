@@ -5,12 +5,11 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import auth from './../auth/auth-helper'
 import {Link, withRouter} from 'react-router-dom'
-import Sidebar from './Sidebar'
 
 
 const isActive = (history, path) => {
   if (history.location.pathname == path)
-    return {color: '#ff4081'}
+    return {color: 'black'}
   else
     return {color: '#ffffff'}
 }
@@ -20,9 +19,6 @@ const isActive = (history, path) => {
 const Menu = withRouter((props) => (
   <AppBar position="static">
     <Toolbar>
-      <Sidebar 
-        left="false"
-      />
       <Typography style={{flex: '1'}} variant="h6">
         Mastery Gradebook
       </Typography>
@@ -44,7 +40,7 @@ const Menu = withRouter((props) => (
       {
         auth.isAuthenticated() && (<span>
           <Link to={"/user/" + auth.isAuthenticated().user._id}>
-            <Button style={isActive(props.history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
+            <Button style={isActive(props.history, "/user/" + auth.isAuthenticated().user._id)}>Courses</Button>
           </Link>
           <Button color="inherit" onClick={() => {
               auth.clearJWT(() => props.history.push('/'))
